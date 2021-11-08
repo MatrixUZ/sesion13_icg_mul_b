@@ -1,0 +1,30 @@
+<canvas id='mycanvas' width=600 height=600>
+<script>
+	
+	function polygon(a, colorBorde, colorRelleno, grosor) { 
+	ctx.beginPath()
+	ctx.strokeStyle = colorBorde
+	ctx.fillStyle = colorRelleno
+	ctx.lineWidth = grosor;
+	ctx.moveTo(a[0],a[1])
+	for (i=2; i < a.length; i+=2)
+	ctx.lineTo(a[i],a[i+1]);
+	ctx.closePath()
+	ctx.stroke()
+	ctx.fill()
+}
+
+	var canvas = document.getElementById('mycanvas')
+	var ctx = canvas.getContext('2d');
+	// dibujar la letra H
+	var LetraH = [23,20,23,62,32,62,32,43,50,43,50,62,60,62,60,20,50,20,50,37,32,37,32,20];
+
+        polygon(LetraH, 'red', 'yellow');
+//dibujo de la figura rotada
+        ctx.translate(-15,20);
+
+        ctx.rotate(75);
+
+        polygon(LetraH, 'yellow', 'red');
+	
+</script>
